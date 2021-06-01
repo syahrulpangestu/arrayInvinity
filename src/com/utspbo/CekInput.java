@@ -12,7 +12,7 @@ public class CekInput {
         try {
             for (int i = 0; i < inputUser.length; i++) {
                 if (inputUser[i] != null && !inputUser[i].isEmpty()) {
-                    if (inputUser[i].matches("^\\d+(\\.\\d+)?")){
+                        if (inputUser[i].matches("[0-9.-]+")) {
                         inNumber[j] = inputUser[i];
                         j++;
                     }else {
