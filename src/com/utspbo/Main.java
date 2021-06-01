@@ -6,22 +6,27 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<String> inNumber = new ArrayList<>();
-        ArrayList<String> inString = new ArrayList<>();
+        String[] inString = new String[100];
+        String[] inNumber = new String[100];
 
-        String inputUser;
+        ArrayList<String> arrNumber = new ArrayList<>();
+        ArrayList<String> arrString = new ArrayList<>();
+
+        String[] inputUser = new String[100];
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("masukan inputan");
         try {
             for (int i = 0; true; i++) {
                 System.out.print("index ke-" + i + " ");
-                inputUser = bufferedReader.readLine();
+                inputUser[i] = bufferedReader.readLine();
                 try {
-                    if (!inputUser.isEmpty()){
-                        if (inputUser.matches("[0-9.-]+")) {
-                            inNumber.add(inputUser);
-                        } else if (inputUser.matches("[a-zA-Z]*") && !inputUser.equals("stop") && !inputUser.equals("STOP")) {
-                            inString.add(inputUser);
+                    if (!inputUser[i].isEmpty()){
+                        if (inputUser[i].matches("[0-9.-]+")) {
+                            inNumber[i] = inputUser[i];
+                            arrNumber.add(inNumber[i]);
+                        } else if (inputUser[i].matches("[a-zA-Z]*") && !inputUser[i].equals("stop") && !inputUser[i].equals("STOP")) {
+                            inString[i] = inputUser[i];
+                            arrString.add(inString[i]);
                         }
                     }else {
                         throw new Exception("null");
@@ -31,10 +36,10 @@ public class Main {
                 }
 
                 try {
-                    if ("stop".equals(inputUser) || "STOP".equals(inputUser)) {
+                    if ("stop".equals(inputUser[i]) || "STOP".equals(inputUser[i])) {
                         ReadWrite readWrite = new ReadWrite();
-                        readWrite.writeNum(inNumber);
-                        readWrite.writeStr(inString);
+                        readWrite.writeNum(arrNumber);
+                        readWrite.writeStr(arrString);
                         readWrite.readNum();
                         readWrite.readStr();
                         throw new Exception("Program has been stoped");
