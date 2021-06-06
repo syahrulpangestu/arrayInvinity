@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 /**
- * Class ReadWrite untuk menyimpan data arraylist yang akan ditampilkan, maupun sudah disimpan
+ * Class ReadWrite untuk menyimpan data arraylist yang akan ditampilkan, maupun sudah disimpananannanaanan
  */
 public class ReadWrite {
     /**
